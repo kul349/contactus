@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "989620708555",
+    "project_id": "helloapp-391dd",
+    "storage_bucket": "helloapp-391dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989620708555:android:900e351b1567375d58274e",
+        "android_client_info": {
+          "package_name": "com.example.helloapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGzylDTr2p-xY8pJYxbG8HO1TMYh29fRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

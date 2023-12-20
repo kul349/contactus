@@ -1,0 +1,115 @@
+// import 'dart:convert';
+
+// import 'package:flutter/material.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
+// import 'contact.dart';
+
+// class HomePage extends StatefulWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   State<HomePage> createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+//   TextEditingController namecontroller = TextEditingController();
+//   TextEditingController contactcontroller = TextEditingController();
+//   List<Contact> contacts = List.empty(growable: true);
+//   int selectedindex = -1;
+//   late SharedPreferences sp;
+//   getSharedPreferences() async {
+//     sp = await SharedPreferences.getInstance();
+//   }
+
+//   saveIntoSp() {
+//     List<String> contactListString =
+//         contacts.map((contact) => jsonEncode(contact.toJson())).toList();
+//     sp.setStringList("mydata", contactListString);
+//   }
+
+//   readFromSp() {
+//     List<String>? contactListString = sp.getStringList("mydata");
+//     if (contactListString != null) {
+//       contacts = contactListString
+//           .map((contact) => Contact.fromJson(json.decode(contact)))
+//           .toList();
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text("contact list "),
+//         centerTitle: true,
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(8.0),
+//         child: Column(
+//           children: [
+//             const SizedBox(
+//               height: 10,
+//             ),
+//             TextField(
+//               controller: namecontroller,
+//               decoration: const InputDecoration(
+//                 hintText: "contact name ",
+//                 border: OutlineInputBorder(
+//                   borderRadius: BorderRadius.all(
+//                     Radius.circular(10),
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             const SizedBox(
+//               height: 10,
+//             ),
+//             TextField(
+//               controller: contactcontroller,
+//               keyboardType: TextInputType.number,
+//               decoration: const InputDecoration(
+//                   hintText: "contact number:",
+//                   border: OutlineInputBorder(
+//                     borderRadius: BorderRadius.all(
+//                       Radius.circular(10),
+//                     ),
+//                   )),
+//             ),
+//             const SizedBox(
+//               height: 10,
+//             ),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//               children: [
+//                 ElevatedButton(
+//                     onPressed: () {
+//                       String name = namecontroller.text.trim();
+//                       String contact = contactcontroller.text.trim();
+//                       if (name.isNotEmpty && contact.isNotEmpty) {
+//                         namecontroller.text = "";
+//                         contactcontroller.text = "";
+//                         contacts.add(Contact(name: name, contact: contact));
+//                       }
+//                     },
+//                     child: Text("save ")),
+//                 ElevatedButton(
+//                     onPressed: () {
+//                       String name = namecontroller.text.trim();
+//                       String contact = contactcontroller.text.trim();
+//                       if (name.isNotEmpty && contact.isNotEmpty) {
+//                         namecontroller.text = "";
+//                         contactcontroller.text = "";
+//                         contacts[selectedindex].name = name;
+//                         contacts[selectedindex].contact = contact;
+//                         selectedindex = -1;
+//                       }
+//                     },
+//                     child: const Text("Update"))
+//               ],
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
